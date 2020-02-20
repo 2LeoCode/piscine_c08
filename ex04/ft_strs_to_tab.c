@@ -6,11 +6,11 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 00:02:19 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/19 21:59:04 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/20 21:20:13 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stock_str.h"
+#include "ft_stock_str.h"
 #include <stdlib.h>
 
 int					ft_strlen(char *str)
@@ -35,11 +35,11 @@ void				ft_strcpy(char *src, char *dest)
 
 struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
-	int i;
+	int					i;
+	struct s_stock_str	*lol;
 
-	struct s_stock_str *lol;
 	lol = 0;
-	if (malloc(sizeof(struct s_stock_str) * ac + 1 ) == NULL)
+	if (malloc(sizeof(struct s_stock_str) * ac + 1) == NULL)
 		return (lol);
 	lol = malloc(sizeof(struct s_stock_str) * ac + 1);
 	i = 0;
@@ -57,5 +57,5 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 		i++;
 	}
 	lol[i].str = 0;
-	return(lol);
+	return (lol);
 }
