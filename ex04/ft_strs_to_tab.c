@@ -6,7 +6,7 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 00:02:19 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/26 11:55:51 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/26 17:48:58 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,21 @@ int					ft_strlen(char *str)
 	return (i);
 }
 
-void				ft_strcpy(char *src, char *dest)
+char				*ft_strdup(char *src)
 {
-	int i;
+	char	*tab;
+	int		i;
 
-	i = -1;
-	while (src[++i])
-		dest[i] = src[i];
-	dest[i] = 0;
+	i = 0;
+	if (!tab = malloc(ft_strlen(src) + 1))
+		return (NULL);
+	while (src[i])
+	{
+		tab[i] = src[i];
+		i++;
+	}
+	tab[i] = 0;
+	return (tab)
 }
 
 struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
@@ -45,15 +52,14 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	i = 0;
 	while (i < ac - 1)
 	{
-		lol[i].size = ft_strlen(av[i + 1]);
-		lol[i].str = av[i + 1];
+		lol[i].size = ft_strlen(av[i]);
+		lol[i].str = av[i];
 		if ((char*)malloc(sizeof(char) * lol[i].size + 1) == NULL)
 		{
 			lol = 0;
 			return (NULL);
 		}
-		lol[i].copy = (char*)malloc(sizeof(char) * lol[i].size + 1);
-		ft_strcpy(lol[i].str, lol[i].copy);
+		lol[i].copy = ft_strdup(av[i]);
 		i++;
 	}
 	lol[i].str = 0;
