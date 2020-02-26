@@ -6,7 +6,7 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 00:02:19 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/22 14:44:43 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/26 11:55:51 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 
 	lol = 0;
 	if (malloc(sizeof(struct s_stock_str) * ac + 1) == NULL)
-		return (lol);
+		return (NULL);
 	lol = malloc(sizeof(struct s_stock_str) * ac + 1);
 	i = 0;
 	while (i < ac - 1)
@@ -50,7 +50,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 		if ((char*)malloc(sizeof(char) * lol[i].size + 1) == NULL)
 		{
 			lol = 0;
-			return (lol);
+			return (NULL);
 		}
 		lol[i].copy = (char*)malloc(sizeof(char) * lol[i].size + 1);
 		ft_strcpy(lol[i].str, lol[i].copy);
